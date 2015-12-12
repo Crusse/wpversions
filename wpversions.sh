@@ -50,7 +50,7 @@ while true ; do
 
   while read -r url ; do
 
-    versionStr="$( wget --tries 3 --ignore-length --timeout 60 -q -O - "${url}" | grep -iEoh -m 1 '<meta\s+.+WordPress\s*[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' | sed -E 's/<meta.+WordPress\s*//i' )"
+    versionStr="$( wget --tries 3 --ignore-length --timeout 60 -q -O - "${url}" | grep -iEoh -m 1 '<meta\s+.+WordPress\s*[[:digit:]\.]+' | sed -E 's/<meta.+WordPress\s*//i' )"
 
     if [[ "$versionStr" = "" ]] ; then
       continue
